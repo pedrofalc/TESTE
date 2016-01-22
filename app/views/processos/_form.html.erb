@@ -1,0 +1,29 @@
+<%= form_for(@processo) do |f| %>
+  <% if @processo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@processo.errors.count, "error") %> prohibited this processo from being saved:</h2>
+
+      <ul>
+      <% @processo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :nome %><br>
+    <%= f.text_field :nome %>
+  </div>
+  <div class="field">
+    <%= f.label :inicio %><br>
+    <%= f.date_select :inicio %>
+  </div>
+  <div class="field">
+    <%= f.label :final %><br>
+    <%= f.date_select :final %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
